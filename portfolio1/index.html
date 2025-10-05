@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portfolio</title>
+
+    <!-- Linking Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <!-- Linking external CSS file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ================= HEADER / NAVBAR ================= -->
+    <header class="main-header">
+        <div class="container">
+            <!-- Website Logo / Name -->
+            <a href="#hero" class="logo">Student Portfolio</a>
+
+            <!-- Simple Navigation Links -->
+            <nav class="nav-links">
+                <a href="#about">About</a>
+                <a href="#education">Education</a>
+                <a href="#skills">Skills</a>
+                <a href="#achievements">Work</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ================= HERO SECTION ================= -->
+    <header id="hero" class="hero-section">
+        <div class="container">
+            <!-- Profile Photo -->
+            <img src="placeholder-photo.jpg" alt="Student Profile Photo" class="profile-photo">
+
+            <!-- Student Name -->
+            <h1 class="student-name">Student Name</h1>
+
+            <!-- Short Bio -->
+            <p class="bio-summary">
+                First-year student at Sinhgad Institute of Technology, Lonavala — learning and exploring <strong>Web Development</strong> and <strong>basic programming</strong>.
+            </p>
+
+            <!-- Social Media Links -->
+            <div class="social-links">
+                <a href="#" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <main>
+
+        <!-- ===== ABOUT SECTION ===== -->
+        <section id="about" class="section">
+            <div class="container">
+                <h2>About Me</h2>
+                <p>
+                    I am a first-year Computer Engineering student at <strong>Sinhgad Institute of Technology, Lonavala</strong>.
+                    I enjoy learning about web technologies and coding basics. My current goal is to build small projects 
+                    to improve my understanding of HTML, CSS, and JavaScript.
+                </p>
+            </div>
+        </section>
+
+        <!-- ===== EDUCATION SECTION ===== -->
+        <section id="education" class="section alt-bg">
+            <div class="container">
+                <h2>Education</h2>
+                <div class="timeline">
+                    <!-- College -->
+                    <div class="timeline-item">
+                        <h3>B.E. in Computer Engineering</h3>
+                        <p class="institution">Sinhgad Institute of Technology, Lonavala</p>
+                        <span class="years">2024 - 2028 (Pursuing)</span>
+                    </div>
+                    <!-- 12th -->
+                    <div class="timeline-item">
+                        <h3>Higher Secondary (Grade 12)</h3>
+                        <p class="institution">ABC Junior College, Pune</p>
+                        <span class="years">2023</span>
+                    </div>
+                    <!-- 10th -->
+                    <div class="timeline-item">
+                        <h3>Secondary School (Grade 10)</h3>
+                        <p class="institution">XYZ High School, Pune</p>
+                        <span class="years">2021</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SKILLS SECTION ===== -->
+        <section id="skills" class="section">
+            <div class="container">
+                <h2>Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <i class="fab fa-html5 skill-icon"></i>
+                        <h4>HTML5</h4>
+                        <div class="proficiency-bar"><div class="bar-fill" style="width: 80%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-css3-alt skill-icon"></i>
+                        <h4>CSS3</h4>
+                        <div class="proficiency-bar"><div class="bar-fill" style="width: 70%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-js skill-icon"></i>
+                        <h4>JavaScript (Basics)</h4>
+                        <div class="proficiency-bar"><div class="bar-fill" style="width: 50%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-lightbulb skill-icon"></i>
+                        <h4>Learning Mindset</h4>
+                        <div class="proficiency-bar"><div class="bar-fill" style="width: 90%;"></div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== ACHIEVEMENTS SECTION ===== -->
+        <section id="achievements" class="section alt-bg">
+            <div class="container">
+                <h2>Achievements & Projects</h2>
+                <ul class="achievements-list">
+                    <li><i class="fas fa-trophy"></i> Attended <strong>“Code2Launch Workshop”</strong> by SIT ACM Student Chapter.</li>
+                    <li><i class="fas fa-code"></i> Built my <strong>first personal website</strong> using HTML, CSS, and JavaScript.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ===== CONTACT SECTION ===== -->
+        <section id="contact" class="section">
+            <div class="container">
+                <h2>Get In Touch</h2>
+
+                <!-- Simple Contact Form -->
+                <form id="contactForm" class="contact-form">
+                    <input type="text" id="name" placeholder="Your Name" required>
+                    <input type="email" id="email" placeholder="Your Email" required>
+                    <textarea id="message" rows="4" placeholder="Your Message" required></textarea>
+                    <button type="submit" class="btn-primary">Send Message</button>
+                    <p id="formMessage" class="form-message"></p>
+                </form>
+
+                <p class="contact-alt">
+                    Email me directly:
+                    <a href="mailto:student@example.com"><strong>student@example.com</strong></a>
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Student Portfolio.</p>
+            <div class="footer-social-links">
+                <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Linking external JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>

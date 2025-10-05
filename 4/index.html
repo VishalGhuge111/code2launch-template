@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minimalist Student Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <style>
+        /* ==================================
+           1. CSS STYLES (Simple & Minimalist)
+        =================================== */
+
+        /* Core Variables */
+        :root {
+            --primary-color: #007BFF; /* A clean, clear blue */
+            --secondary-color: #f8f9fa; /* Light gray for alternating background */
+            --text-color: #333;
+            --background-color: #ffffff;
+            --link-hover: #0056b3;
+        }
+
+        /* Base Reset and Typography */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth; 
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            padding-top: 50px; /* Space for fixed header */
+        }
+
+        /* Layout Container */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* --- FIXED HEADER (NAVIGATION) --- */
+        .main-header {
+            background-color: var(--background-color);
+            border-bottom: 1px solid #eee;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 15px;
+        }
+
+        .logo {
+            font-size: 1.4em;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 0.95em;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* General Section Styling */
+        .section {
+            padding: 70px 0;
+        }
+
+        .alt-bg {
+            background-color: var(--secondary-color);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+            font-size: 2em;
+            padding-bottom: 5px;
+            border-bottom: 2px solid var(--primary-color);
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* --- HERO SECTION --- */
+        .hero-section {
+            padding: 100px 0 70px; 
+            text-align: center;
+            background-color: var(--secondary-color);
+        }
+
+        .profile-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%; /* Simple circular image */
+            border: 4px solid var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .student-name {
+            font-size: 2.5em;
+            margin-bottom: 8px;
+            color: var(--text-color);
+        }
+
+        .bio-summary {
+            font-size: 1.1em;
+            margin-bottom: 25px;
+            color: #555;
+        }
+
+        .social-links a {
+            color: var(--text-color);
+            font-size: 1.5em;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--primary-color); 
+        }
+
+        /* --- EDUCATION SECTION (Simple List) --- */
+        .timeline-item {
+            padding: 15px 0;
+            border-left: 2px solid #ccc;
+            margin-left: 20px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 18px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            border: 2px solid var(--background-color);
+        }
+
+        .timeline-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 3px;
+        }
+
+        .timeline-item .institution {
+            font-weight: bold;
+            color: var(--text-color);
+        }
+
+        .timeline-item .years {
+            font-size: 0.9em;
+            color: #777;
+        }
+
+
+        /* --- SKILLS SECTION (Simple Grid) --- */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+
+        .skill-item {
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background: var(--background-color);
+            transition: border-color 0.3s;
+        }
+
+        .skill-item:hover {
+            border-color: var(--primary-color);
+        }
+
+        .skill-icon {
+            font-size: 2em;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+        }
+
+        .proficiency-bar {
+            background-color: #eee;
+            border-radius: 3px;
+            height: 8px;
+            margin-top: 8px;
+            overflow: hidden;
+        }
+
+        .bar-fill {
+            height: 100%;
+            background-color: var(--primary-color);
+            border-radius: 3px;
+        }
+
+        /* --- ACHIEVEMENTS SECTION (Bulleted List) --- */
+
+        .achievements-list {
+            max-width: 700px;
+            margin: 0 auto;
+            list-style: none;
+            padding: 0;
+        }
+
+        .achievements-list li {
+            padding: 10px 0;
+            margin-bottom: 8px;
+            border-bottom: 1px dotted #ccc;
+            font-size: 1em;
+            text-align: left;
+        }
+
+        .achievements-list li i {
+            margin-right: 10px;
+            color: var(--primary-color);
+        }
+
+        /* --- CONTACT SECTION --- */
+
+        .contact-form {
+            max-width: 500px;
+            margin: 0 auto 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background: var(--secondary-color);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            font-size: 1em;
+        }
+
+        .btn-primary {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: background-color 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--link-hover);
+        }
+
+        .contact-alt {
+            text-align: center;
+            font-size: 1em;
+        }
+
+        .contact-alt a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .form-message {
+            text-align: center;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        
+        /* --- FOOTER SECTION --- */
+
+        .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 15px 0;
+            font-size: 0.9em;
+        }
+
+        .footer .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-social-links a {
+            color: #fff;
+            font-size: 1.1em;
+            margin-left: 10px;
+            transition: color 0.3s;
+        }
+
+        .footer-social-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* --- RESPONSIVENESS --- */
+
+        @media (max-width: 600px) {
+            body {
+                padding-top: 80px;
+            }
+
+            .main-header .container {
+                flex-direction: column;
+            }
+            
+            .nav-links {
+                margin-top: 8px;
+            }
+
+            .nav-links a {
+                margin: 0 8px;
+            }
+
+            .section {
+                padding: 40px 0;
+            }
+
+            .student-name {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <a href="#hero" class="logo">J. Doe</a>
+            <nav class="nav-links">
+                <a href="#about">About</a>
+                <a href="#education">Education</a>
+                <a href="#skills">Skills</a>
+                <a href="#achievements">Work</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <header id="hero" class="hero-section">
+        <div class="container">
+            <img src="placeholder-photo.jpg" alt="Student Profile Photo" class="profile-photo">
+            
+            <h1 class="student-name">JANE DOE</h1>
+            <p class="bio-summary">
+                First-year student exploring **Web Development** and **Data Structures**. Dedicated and ready for the **SIH 2025** challenge!
+            </p>
+
+            <div class="social-links">
+                <a href="#" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+    
+    <section id="about" class="section">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>
+                I am currently pursuing my B.Tech degree and excited to explore the world of technology. I'm passionate about **problem-solving** and actively improving my skills in basic programming languages like Python and C++. My goal is to build simple, effective solutions, whether for a hackathon or a small personal project.
+            </p>
+        </div>
+    </section>
+    
+    <section id="education" class="section alt-bg">
+        <div class="container">
+            <h2>Education</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>B.Tech in Computer Science</h3>
+                    <p class="institution">University Name, City</p>
+                    <span class="years">2024 - 2028 (Expected)</span>
+                </div>
+                <div class="timeline-item">
+                    <h3>Higher Secondary School (Grade 12)</h3>
+                    <p class="institution">School Name, City</p>
+                    <span class="years">2023</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section id="skills" class="section">
+        <div class="container">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <i class="fab fa-html5 skill-icon"></i>
+                    <h4>HTML5</h4>
+                    <div class="proficiency-bar"><div class="bar-fill" style="width: 80%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <i class="fab fa-css3-alt skill-icon"></i>
+                    <h4>CSS3</h4>
+                    <div class="proficiency-bar"><div class="bar-fill" style="width: 70%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <i class="fab fa-js skill-icon"></i>
+                    <h4>JavaScript (JS)</h4>
+                    <div class="proficiency-bar"><div class="bar-fill" style="width: 55%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-handshake skill-icon"></i>
+                    <h4>Communication</h4>
+                    <div class="proficiency-bar"><div class="bar-fill" style="width: 90%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-users skill-icon"></i>
+                    <h4>Teamwork</h4>
+                    <div class="proficiency-bar"><div class="bar-fill" style="width: 85%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-lightbulb skill-icon"></i>
+                    <h4>Problem Solving</h4>
+                    <div class="proficiency-bar"><div class="bar-fill" style="width: 75%;"></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="achievements" class="section alt-bg">
+        <div class="container">
+            <h2>Achievements & Projects</h2>
+            <ul class="achievements-list">
+                <li><i class="fas fa-trophy"></i> **SIH 2025** Participation: Worked on a hybrid problem statement (incorporating software/hardware).</li>
+                <li><i class="fas fa-code"></i> Project: Built a fully functional **Temperature Converter** using HTML/CSS/JS.</li>
+                <li><i class="fas fa-certificate"></i> Certification: Completed 'Introduction to Python' from Coursera (Oct 2024).</li>
+                <li><i class="fas fa-award"></i> School Academic Excellence Award (2023).</li>
+            </ul>
+        </div>
+    </section>
+
+
+    <section id="contact" class="section">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <form id="contactForm" class="contact-form">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="email" id="email" placeholder="Your Email" required>
+                <textarea id="message" rows="4" placeholder="Your Message" required></textarea>
+                <button type="submit" class="btn-primary">Send Message</button>
+                <p id="formMessage" class="form-message"></p>
+            </form>
+            <p class="contact-alt">
+                Email me directly: 
+                <a href="mailto:jane.doe@example.com"><strong>jane.doe@example.com</strong></a>
+            </p>
+        </div>
+    </section>
+
+    </main>
+    
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Jane Doe.</p>
+            <div class="footer-social-links">
+                <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const contactForm = document.getElementById('contactForm');
+            const formMessage = document.getElementById('formMessage');
+
+            contactForm.addEventListener('submit', function(event) {
+                event.preventDefault(); // Stop the default form submission
+
+                // Get values
+                const name = document.getElementById('name').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const message = document.getElementById('message').value.trim();
+
+                // Basic Validation: Check for empty fields
+                if (name === '' || email === '' || message === '') {
+                    formMessage.textContent = 'Please fill out all fields.';
+                    formMessage.style.color = 'red';
+                    return; 
+                }
+
+                // Basic Email Format Check
+                if (!email.includes('@') || !email.includes('.')) {
+                     formMessage.textContent = 'Please enter a valid email address.';
+                     formMessage.style.color = 'red';
+                     return;
+                }
+
+                // If validation passes
+                formMessage.textContent = 'Thank you for your message! (Functionality not enabled yet)';
+                formMessage.style.color = 'green';
+                
+                // For a real form, the next step would be sending data to a server.
+                // We keep it simple by just showing a success message.
+            });
+        });
+    </script>
+</body>
+</html>

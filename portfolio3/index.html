@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beginner Portfolio - [Your Name]</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="container">
+            <a href="#about">About</a>
+            <a href="#education">Education</a>
+            <a href="#skills">Skills</a>
+            <a href="#achievements">Projects</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <header id="home">
+        <div class="container">
+            <img src="https://via.placeholder.com/150/007BFF/FFFFFF?text=Photo" alt="Student Profile Picture" class="profile-img">
+            <h1 class="student-name">[Your Full Name Here]</h1>
+            <p class="bio-summary">
+                First-year student at [College Name]. Excited to learn programming and create fun projects. Participated in workshops like Code2Launch and built my own portfolio website.
+            </p>
+
+            <div class="social-links">
+                <a href="#" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <section id="about">
+        <div class="container">
+            <h2>👋 About Me</h2>
+            <p style="max-width: 800px; margin: 0 auto; text-align: center;">
+                I'm a beginner-friendly first-year student learning **HTML, CSS, and JavaScript**. I enjoy creating small projects and exploring web development step by step. My goal is to make my own portfolio and keep learning new things in a simple, practical way.
+            </p>
+        </div>
+    </section>
+
+    <section id="education">
+        <div class="container">
+            <h2>🎓 Education</h2>
+            <ul class="education-list">
+                <li class="education-item">
+                    <span class="edu-year">2025 - Present</span>
+                    <h3>B.Tech. in [Branch]</h3>
+                    <p>[Your College Name], [City]</p>
+                    <p>Currently learning web development and building beginner projects.</p>
+                </li>
+                <li class="education-item">
+                    <span class="edu-year">2023 - 2025</span>
+                    <h3>Higher Secondary School (Class 12)</h3>
+                    <p>[Your School Name], [City]</p>
+                    <p>Science Stream | Achieved [X]% aggregate score.</p>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2>🛠️ Skills & Proficiency</h2>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <div class="skill-name">HTML & CSS</div>
+                    <div class="proficiency-bar"><div class="proficiency-level" style="width: 80%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">JavaScript (Vanilla)</div>
+                    <div class="proficiency-bar"><div class="proficiency-level" style="width: 60%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">Problem Solving</div>
+                    <div class="proficiency-bar"><div class="proficiency-level" style="width: 70%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">Teamwork</div>
+                    <div class="proficiency-bar"><div class="proficiency-level" style="width: 90%;"></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="achievements">
+        <div class="container">
+            <h2>🏆 Projects & Achievements</h2>
+            <div class="achievements-list">
+                <div class="achievement-card">
+                    <h3>Code2Launch Workshop</h3>
+                    <p>Participated in the Code2Launch workshop for beginners and built my very first portfolio website from scratch.</p>
+                </div>
+                <div class="achievement-card">
+                    <h3>Simple To-Do Web App</h3>
+                    <p>Created a small To-Do List project using HTML, CSS, and JavaScript to practice web development basics.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" style="background-color: var(--background-light);">
+        <div class="container">
+            <h2>📧 Get In Touch</h2>
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required placeholder="Your Full Name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required placeholder="Your Email Address">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" required placeholder="Your message here..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+                <div class="validation-message" id="formValidationMessage"></div>
+            </form>
+
+            <div class="contact-alternative">
+                <p>Alternatively, you can reach me directly at:</p>
+                <p><strong><a href="mailto:your.email@example.com">your.email@example.com</a></strong></p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="current-year"></span> [Your Name]. All rights reserved.</p>
+            <div class="social-links" style="margin-top: 10px;">
+                <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

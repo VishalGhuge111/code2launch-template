@@ -1,0 +1,298 @@
+/* ===========================================
+   Beginner Portfolio - CSS File
+   Author: [Your Name]
+   Purpose: All styles for the portfolio website
+   Beginner-friendly comments included
+   =========================================== */
+
+/* --- Root Variables for Colors, Spacing, etc. --- */
+:root {
+    --primary-color: #007BFF;      /* Main professional blue */
+    --secondary-color: #6C757D;    /* Grey for secondary text */
+    --background-light: #F8F9FA;   /* Light grey page background */
+    --background-white: #FFFFFF;   /* White background for sections */
+    --text-dark: #343A40;          /* Dark text color */
+    --spacing: 20px;               /* General spacing value */
+}
+
+/* --- General Reset --- */
+* {
+    box-sizing: border-box;  /* Include padding and border in element width */
+    margin: 0;               /* Remove default margin */
+    padding: 0;              /* Remove default padding */
+}
+
+/* --- Body Styles --- */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Readable font */
+    line-height: 1.6;       /* Space between lines */
+    color: var(--text-dark);
+    background-color: var(--background-light);
+    scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+}
+
+/* --- Links --- */
+a {
+    text-decoration: none;      /* Remove underline */
+    color: var(--primary-color);/* Blue color */
+}
+a:hover {
+    color: #0056b3;             /* Darker blue on hover */
+}
+
+/* --- Container for Centered Content --- */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;             /* Center horizontally */
+    padding: 0 var(--spacing);  /* Horizontal padding */
+}
+
+/* --- Sections --- */
+section {
+    padding: 60px 0;            /* Vertical padding */
+    margin-bottom: 20px;        /* Space between sections */
+    background-color: var(--background-white);
+    border-radius: 8px;         /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); /* Soft shadow */
+}
+
+/* Section Headings */
+h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--primary-color);
+    font-size: 2em;
+}
+
+/* --- Header Section --- */
+header {
+    background-color: var(--background-white);
+    padding: 40px 0;
+    text-align: center;
+}
+
+/* Profile Image */
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;  /* Circular */
+    object-fit: cover;
+    margin-bottom: var(--spacing);
+    border: 4px solid var(--primary-color);
+}
+
+/* Name and Bio */
+.student-name {
+    font-size: 2.5em;
+    margin-bottom: 5px;
+    color: var(--text-dark);
+}
+.bio-summary {
+    font-size: 1.1em;
+    color: var(--secondary-color);
+    max-width: 600px;
+    margin: 0 auto 25px; /* Centered with bottom margin */
+}
+
+/* Social Links */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.social-links a {
+    font-size: 1.5em;
+    color: var(--secondary-color);
+    transition: color 0.3s ease;
+}
+.social-links a:hover {
+    color: var(--primary-color);
+    transform: scale(1.1);
+}
+
+/* --- Navigation Bar --- */
+nav {
+    background-color: var(--primary-color);
+    padding: 10px 0;
+    position: sticky; /* Stays on top */
+    top: 0;
+    z-index: 1000;
+}
+nav .container {
+    display: flex;
+    justify-content: center;
+}
+nav a {
+    color: white;
+    padding: 8px 15px;
+    margin: 0 5px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+nav a:hover {
+    background-color: #0056b3;
+}
+
+/* --- Education Section --- */
+.education-list {
+    list-style: none;
+    padding: 0;
+    max-width: 700px;
+    margin: 0 auto;
+}
+.education-item {
+    border-left: 3px solid var(--primary-color);
+    padding-left: 20px;
+    margin-bottom: 30px;
+    position: relative;
+}
+.education-item::before {
+    content: '';
+    position: absolute;
+    left: -8px;
+    top: 0;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    border: 2px solid var(--background-white);
+}
+.edu-year {
+    font-weight: bold;
+    color: var(--secondary-color);
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* --- Skills Section --- */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+.skill-item {
+    background-color: var(--background-light);
+    padding: 15px;
+    border-radius: 6px;
+}
+.skill-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.proficiency-bar {
+    background-color: #E9ECEF;
+    border-radius: 4px;
+    height: 10px;
+    margin-top: 5px;
+    overflow: hidden;
+}
+.proficiency-level {
+    height: 100%;
+    background-color: var(--primary-color);
+    transition: width 1s ease-out;
+}
+
+/* --- Achievements Section --- */
+.achievements-list {
+    list-style-type: none;
+    padding: 0;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.achievement-card {
+    background-color: var(--background-light);
+    padding: 20px;
+    border-left: 5px solid var(--primary-color);
+    border-radius: 6px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+.achievement-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Contact Form --- */
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #DEE2E6;
+    border-radius: 8px;
+    background-color: var(--background-white);
+}
+.form-group {
+    margin-bottom: var(--spacing);
+}
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #CED4DA;
+    border-radius: 4px;
+    font-size: 1em;
+}
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+.submit-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+}
+.submit-btn:hover {
+    background-color: #0056b3;
+}
+.contact-alternative {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.1em;
+}
+.validation-message {
+    color: red;
+    margin-top: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 25px 0;
+    background-color: var(--text-dark);
+    color: white;
+}
+footer .social-links a {
+    color: white;
+    font-size: 1.2em;
+}
+footer .social-links a:hover {
+    color: var(--primary-color);
+}
+
+/* --- Responsiveness --- */
+@media (max-width: 768px) {
+    .skills-grid {
+        grid-template-columns: 1fr; /* Stack skills vertically on small screens */
+    }
+    .student-name {
+        font-size: 2em;
+    }
+    section {
+        padding: 40px 0;
+    }
+}

@@ -1,0 +1,307 @@
+/* ==================================
+   CSS STYLES (Simple & Minimalist)
+=================================== */
+
+/* --- COLOR VARIABLES --- */
+:root {
+    --primary-color: #007BFF;
+    --secondary-color: #f8f9fa;
+    --text-color: #333;
+    --background-color: #ffffff;
+    --link-hover: #0056b3;
+}
+
+/* --- BASIC RESET --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    padding-top: 50px;
+}
+
+/* --- LAYOUT CONTAINER --- */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* --- FIXED HEADER --- */
+.main-header {
+    background-color: var(--background-color);
+    border-bottom: 1px solid #eee;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+}
+
+.logo {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 0.95em;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+/* --- SECTION STYLES --- */
+.section {
+    padding: 70px 0;
+}
+
+.alt-bg {
+    background-color: var(--secondary-color);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--primary-color);
+    font-size: 2em;
+    border-bottom: 2px solid var(--primary-color);
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- HERO SECTION --- */
+.hero-section {
+    padding: 100px 0 70px;
+    text-align: center;
+    background-color: var(--secondary-color);
+}
+
+.profile-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.student-name {
+    font-size: 2.5em;
+    margin-bottom: 8px;
+    color: var(--text-color);
+}
+
+.bio-summary {
+    font-size: 1.1em;
+    margin-bottom: 25px;
+    color: #555;
+}
+
+.social-links a {
+    color: var(--text-color);
+    font-size: 1.5em;
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: var(--primary-color);
+}
+
+/* --- EDUCATION TIMELINE --- */
+.timeline-item {
+    padding: 15px 0;
+    border-left: 2px solid #ccc;
+    margin-left: 20px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.timeline-item:before {
+    content: '';
+    position: absolute;
+    left: -8px;
+    top: 18px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    border: 2px solid var(--background-color);
+}
+
+.timeline-item h3 {
+    color: var(--primary-color);
+    margin-bottom: 3px;
+}
+
+.timeline-item .institution {
+    font-weight: bold;
+}
+
+.timeline-item .years {
+    font-size: 0.9em;
+    color: #777;
+}
+
+/* --- SKILLS --- */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    text-align: center;
+}
+
+.skill-item {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: var(--background-color);
+    transition: border-color 0.3s;
+}
+
+.skill-item:hover {
+    border-color: var(--primary-color);
+}
+
+.skill-icon {
+    font-size: 2em;
+    color: var(--primary-color);
+    margin-bottom: 8px;
+}
+
+.proficiency-bar {
+    background-color: #eee;
+    border-radius: 3px;
+    height: 8px;
+    margin-top: 8px;
+    overflow: hidden;
+}
+
+.bar-fill {
+    height: 100%;
+    background-color: var(--primary-color);
+}
+
+/* --- ACHIEVEMENTS --- */
+.achievements-list {
+    max-width: 700px;
+    margin: 0 auto;
+    list-style: none;
+}
+
+.achievements-list li {
+    padding: 10px 0;
+    margin-bottom: 8px;
+    border-bottom: 1px dotted #ccc;
+    font-size: 1em;
+}
+
+/* --- CONTACT --- */
+.contact-form {
+    max-width: 500px;
+    margin: 0 auto 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: var(--secondary-color);
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+.btn-primary {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: var(--link-hover);
+}
+
+.form-message {
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* --- FOOTER --- */
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 15px 0;
+    font-size: 0.9em;
+}
+
+.footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-social-links a {
+    color: #fff;
+    margin-left: 10px;
+}
+
+.footer-social-links a:hover {
+    color: var(--primary-color);
+}
+
+/* --- RESPONSIVE DESIGN --- */
+@media (max-width: 600px) {
+    body {
+        padding-top: 80px;
+    }
+
+    .main-header .container {
+        flex-direction: column;
+    }
+
+    .nav-links {
+        margin-top: 8px;
+    }
+
+    .section {
+        padding: 40px 0;
+    }
+
+    .student-name {
+        font-size: 2em;
+    }
+}

@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First-Year Student Portfolio - Teal Theme</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* --- General Styling & Setup (Teal & Gold Theme) --- */
+        :root {
+            --primary-color: #008080; /* Deep Teal - Professional and Calming */
+            --secondary-color: #333333; /* Dark Grey for text */
+            --accent-color: #DAA520; /* Goldenrod/Gold Accent - Sophisticated */
+            --background-color: #f5f5f5; /* Off-White/Light Grey background */
+            --card-background: #ffffff; /* White cards/sections */
+            --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --section-padding: 80px 0;
+            --max-width: 1100px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-family);
+            line-height: 1.6;
+            color: var(--secondary-color);
+            background-color: var(--background-color);
+        }
+
+        .container {
+            width: 90%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.2em;
+            color: var(--primary-color);
+        }
+
+        section {
+            padding: var(--section-padding);
+        }
+
+        /* --- Header Section (Hero) --- */
+        .header-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #006666 100%); /* Gradient of Teal */
+            color: var(--card-background);
+            text-align: center;
+            padding: 100px 0;
+        }
+
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .profile-photo {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 6px solid var(--card-background);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .header-section h1 {
+            font-size: 3em;
+            margin-bottom: 5px;
+        }
+
+        .header-section p {
+            font-size: 1.2em;
+            max-width: 600px;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            color: var(--card-background);
+            font-size: 1.5em;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-color); /* Gold hover effect */
+            transform: scale(1.1);
+        }
+
+        /* --- Main Content Sections --- */
+        .card {
+            background-color: var(--card-background);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        /* --- About Section --- */
+        #about p {
+            text-align: center;
+            font-size: 1.1em;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* --- Education Section --- */
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--primary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background-color: var(--card-background);
+            border: 4px solid var(--accent-color); /* Gold border for emphasis */
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .left {
+            left: 0;
+        }
+
+        .right {
+            left: 50%;
+        }
+
+        .right::after {
+            left: -10px;
+        }
+
+        .timeline-content {
+            padding: 20px;
+            background-color: var(--card-background);
+            border-radius: 6px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .timeline-content h4 {
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        /* --- Skills Section --- */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .skill-item h4 {
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            display: flex;
+            align-items: center;
+        }
+
+        .skill-item i {
+            margin-right: 10px;
+            color: var(--primary-color);
+        }
+
+        .skill-bar-container {
+            background-color: #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .skill-bar {
+            height: 15px;
+            background-color: var(--primary-color);
+            border-radius: 10px;
+            text-align: right;
+            color: var(--card-background);
+            padding-right: 5px;
+            font-size: 0.8em;
+            transition: width 1s ease-in-out;
+        }
+
+        /* --- Achievements Section --- */
+        .achievements-list {
+            list-style: none;
+            padding: 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .achievements-list li {
+            padding: 15px;
+            margin-bottom: 10px;
+            border-left: 5px solid var(--accent-color); /* Gold accent line */
+            background-color: var(--card-background);
+            border-radius: 4px;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+            font-style: italic;
+        }
+
+        .achievements-list li strong {
+            color: var(--primary-color);
+            font-style: normal;
+            margin-right: 5px;
+        }
+
+        /* --- Contact Section --- */
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: var(--font-family);
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            background-color: var(--primary-color);
+            color: var(--card-background);
+            padding: 15px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #006666; /* Slightly darker teal */
+            transform: translateY(-2px);
+        }
+
+        .contact-alt-email {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.1em;
+        }
+
+        .contact-alt-email a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        .contact-alt-email a:hover {
+            text-decoration: underline;
+        }
+        
+        #form-message {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 4px;
+            text-align: center;
+            display: none;
+        }
+        
+        .success {
+            background-color: #e0f2f1; /* Light Teal background */
+            color: #008080; /* Deep Teal text */
+            border: 1px solid #80cbc4;
+        }
+        
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+
+        /* --- Footer Section --- */
+        .footer-section {
+            background-color: var(--secondary-color);
+            color: #bdc3c7;
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        .footer-social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .footer-social-links a {
+            color: #bdc3c7;
+            font-size: 1.2em;
+            transition: color 0.3s ease;
+        }
+
+        .footer-social-links a:hover {
+            color: var(--accent-color); /* Gold hover */
+        }
+
+        /* --- Responsive Design (Media Queries) --- */
+        @media (max-width: 768px) {
+            .header-section h1 {
+                font-size: 2.5em;
+            }
+
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item::before {
+                left: 60px;
+                border: medium solid var(--primary-color);
+                border-width: 10px 0 10px 10px;
+                border-color: transparent transparent transparent var(--primary-color);
+            }
+
+            .left::after, .right::after {
+                left: 21px;
+            }
+
+            .left {
+                left: 0%;
+            }
+
+            .right {
+                left: 0%;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav style="display: none;">
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#achievements">Achievements</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <header class="header-section">
+        <div class="container header-content">
+            <img src="https://via.placeholder.com/180/008080/FFFFFF?text=P+H+O+T+O" alt="Student Profile Photo" class="profile-photo">
+
+            <h1>[Your Full Name]</h1>
+            <p>First-year engineering student with a deep interest in **IoT and Blockchain technology**. Eager to apply problem-solving skills to real-world challenges, including SIH2025.</p>
+
+            <div class="social-links">
+                <a href="#" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <section id="about" class="container">
+        <h2>About Me</h2>
+        <div class="card">
+            <p>I am a dedicated and motivated beginner in the tech world. My current focus is mastering **fundamental programming concepts** and exploring new domains like **Machine Learning and Backend development with Django**. I am passionate about creating impactful, user-centric solutions and thrive in collaborative team environments. I'm always looking for opportunities to learn and contribute to challenging projects, especially those that involve **hardware integration**.</p>
+        </div>
+    </section>
+
+    <section id="education" style="background-color: var(--card-background);">
+        <div class="container">
+            <h2>Education</h2>
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h4>[Start Year] - Present</h4>
+                        <h3>B.Tech. in Computer Science Engineering</h3>
+                        <p>**[Your College/University Name]**</p>
+                        <p>Focusing on Data Structures, Algorithms, and Core Engineering subjects.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h4>[Passing Year]</h4>
+                        <h3>Higher Secondary School (Class XII)</h3>
+                        <p>**[Your School Name]**</p>
+                        <p>Specialized in Physics, Chemistry, and Mathematics. Scored **[Your Percentage/Grade]**.</p>
+                    </div>
+                </div>
+
+                </div>
+        </div>
+    </section>
+
+    <section id="skills" class="container">
+        <h2>Skills & Proficiency</h2>
+        <div class="skills-grid">
+            <div class="card skill-item">
+                <h4><i class="fab fa-html5"></i> HTML5</h4>
+                <div class="skill-bar-container">
+                    <div class="skill-bar" style="width: 80%;">80%</div>
+                </div>
+            </div>
+
+            <div class="card skill-item">
+                <h4><i class="fab fa-css3-alt"></i> CSS3</h4>
+                <div class="skill-bar-container">
+                    <div class="skill-bar" style="width: 75%; background-color: var(--accent-color);">75%</div>
+                </div>
+            </div>
+
+            <div class="card skill-item">
+                <h4><i class="fab fa-js-square"></i> Vanilla JavaScript</h4>
+                <div class="skill-bar-container">
+                    <div class="skill-bar" style="width: 60%;">60%</div>
+                </div>
+            </div>
+            
+            <div class="card skill-item">
+                <h4><i class="fas fa-users"></i> Teamwork & Communication</h4>
+                <div class="skill-bar-container">
+                    <div class="skill-bar" style="width: 90%; background-color: #27ae60;">90%</div>
+                </div>
+            </div>
+            
+            <div class="card skill-item">
+                <h4><i class="fas fa-microchip"></i> Basic IoT/ML Concepts</h4>
+                <div class="skill-bar-container">
+                    <div class="skill-bar" style="width: 45%; background-color: var(--accent-color);">45%</div>
+                </div>
+            </div>
+            
+            <div class="card skill-item">
+                <h4><i class="fas fa-code"></i> Python (Basic)</h4>
+                <div class="skill-bar-container">
+                    <div class="skill-bar" style="width: 70%; background-color: #27ae60;">70%</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="achievements" style="background-color: var(--card-background);">
+        <div class="container">
+            <h2>Achievements & Projects</h2>
+            <ul class="achievements-list">
+                <li><strong>SIH 2024 (Attended):</strong> Participated in the Smart India Hackathon internal rounds with a team focusing on an **IoT-based smart city solution**. Gained valuable experience in teamwork and pitching.</li>
+                <li><strong>Certification:</strong> Completed a beginner course on **"Introduction to Python Programming"** from [Platform Name] in [Month, Year].</li>
+                <li><strong>Project 1 (Personal):</strong> Developed a simple **To-Do List Web Application** using only HTML, CSS, and basic JavaScript to practice DOM manipulation.</li>
+                <li><strong>Award:</strong> Secured **[Rank]** position in the **[Competition Name]** coding contest held at the college level.</li>
+                <li><strong>Project 2 (College):</strong> Contributed to a small group project for **[Subject Name]** creating a **[Brief Description]**.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="contact" class="container">
+        <h2>Get In Touch</h2>
+        <div class="contact-content card">
+            <form id="contact-form" class="contact-form" onsubmit="return validateForm(event)">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="youremail@example.com" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+            
+            <div id="form-message" aria-live="polite"></div>
+
+            <div class="contact-alt-email">
+                <p>Alternatively, you can email me at:</p>
+                <p><a href="mailto:your.email@example.com">your.email@example.com</a></p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-section">
+        <div class="container">
+            <p>&copy; 2025 [Your Full Name]. All rights reserved.</p>
+            <div class="footer-social-links">
+                <a href="#" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function validateForm(event) {
+            // Prevent the default form submission (which would reload the page)
+            event.preventDefault(); 
+            
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+            const formMessage = document.getElementById('form-message');
+
+            formMessage.style.display = 'none'; // Hide previous messages
+            formMessage.classList.remove('success', 'error');
+
+            // Basic Validation Check: Check for empty fields
+            if (name === "" || email === "" || message === "") {
+                formMessage.textContent = "Error: All fields are required.";
+                formMessage.classList.add('error');
+                formMessage.style.display = 'block';
+                return false; // Stop form submission
+            }
+            
+            // Basic Email Format Check (simple check for '@' and '.')
+            if (!email.includes('@') || !email.includes('.')) {
+                formMessage.textContent = "Error: Please enter a valid email address.";
+                formMessage.classList.add('error');
+                formMessage.style.display = 'block';
+                return false; // Stop form submission
+            }
+            
+            // If validation passes (in a real-world scenario, you'd send data here)
+            
+            // Simulate successful submission
+            formMessage.textContent = "Message sent successfully! (Note: This is a simulation; no actual email was sent.)";
+            formMessage.classList.add('success');
+            formMessage.style.display = 'block';
+
+            // Clear the form after simulated submission
+            document.getElementById('contact-form').reset();
+
+            // The 'return false' below is technically redundant because we used event.preventDefault(),
+            // but is kept for clarity that the form's default action is stopped.
+            return false;
+        }
+
+        // Simple smooth scrolling for internal links (optional)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beginner Portfolio - [Your Name]</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* --- General Reset & Base Styles --- */
+        :root {
+            --primary-color: #007BFF; /* A professional blue */
+            --secondary-color: #6C757D; /* Grey for secondary text */
+            --background-light: #F8F9FA; /* Light grey background */
+            --background-white: #FFFFFF;
+            --text-dark: #343A40;
+            --spacing: 20px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--background-light);
+            scroll-behavior: smooth;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+
+        a:hover {
+            color: #0056b3; /* Darker blue on hover */
+        }
+
+        /* --- Layout & Structure --- */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 var(--spacing);
+        }
+
+        section {
+            padding: 60px 0;
+            margin-bottom: 20px;
+            background-color: var(--background-white);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+            font-size: 2em;
+        }
+
+        /* --- Header Section --- */
+        header {
+            background-color: var(--background-white);
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%; /* Circular image */
+            object-fit: cover;
+            margin-bottom: var(--spacing);
+            border: 4px solid var(--primary-color);
+        }
+
+        .student-name {
+            font-size: 2.5em;
+            margin-bottom: 5px;
+            color: var(--text-dark);
+        }
+
+        .bio-summary {
+            font-size: 1.1em;
+            color: var(--secondary-color);
+            max-width: 600px;
+            margin: 0 auto 25px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-links a {
+            font-size: 1.5em;
+            color: var(--secondary-color);
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--primary-color);
+            transform: scale(1.1);
+        }
+
+        /* --- Navigation Bar (Optional but helpful) --- */
+        nav {
+            background-color: var(--primary-color);
+            padding: 10px 0;
+            position: sticky; /* Sticky navigation for easy access */
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: center;
+        }
+
+        nav a {
+            color: white;
+            padding: 8px 15px;
+            margin: 0 5px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #0056b3;
+        }
+
+        /* --- Education Section --- */
+        .education-list {
+            list-style: none;
+            padding: 0;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .education-item {
+            border-left: 3px solid var(--primary-color);
+            padding-left: 20px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .education-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 0;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            border: 2px solid var(--background-white);
+        }
+
+        .edu-year {
+            font-weight: bold;
+            color: var(--secondary-color);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        /* --- Skills Section --- */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .skill-item {
+            background-color: var(--background-light);
+            padding: 15px;
+            border-radius: 6px;
+        }
+
+        .skill-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .proficiency-bar {
+            background-color: #E9ECEF;
+            border-radius: 4px;
+            height: 10px;
+            margin-top: 5px;
+            overflow: hidden;
+        }
+
+        .proficiency-level {
+            height: 100%;
+            background-color: var(--primary-color);
+            transition: width 1s ease-out;
+        }
+
+        /* --- Achievements Section --- */
+        .achievements-list {
+            list-style-type: none;
+            padding: 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .achievement-card {
+            background-color: var(--background-light);
+            padding: 20px;
+            border-left: 5px solid var(--primary-color);
+            border-radius: 6px;
+            margin-bottom: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* --- Contact Section --- */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #DEE2E6;
+            border-radius: 8px;
+            background-color: var(--background-white);
+        }
+
+        .form-group {
+            margin-bottom: var(--spacing);
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #CED4DA;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .submit-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .contact-alternative {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.1em;
+        }
+
+        .validation-message {
+            color: red;
+            margin-top: 10px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        /* --- Footer Section --- */
+        footer {
+            text-align: center;
+            padding: 25px 0;
+            background-color: var(--text-dark);
+            color: white;
+        }
+
+        footer .social-links a {
+            color: white;
+            font-size: 1.2em;
+        }
+
+        footer .social-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* --- Responsiveness --- */
+        @media (max-width: 768px) {
+            .skills-grid {
+                grid-template-columns: 1fr; /* Stack skills on smaller screens */
+            }
+
+            .student-name {
+                font-size: 2em;
+            }
+
+            section {
+                padding: 40px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container">
+            <a href="#about">About</a>
+            <a href="#education">Education</a>
+            <a href="#skills">Skills</a>
+            <a href="#achievements">Achievements</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <header id="home">
+        <div class="container">
+            <img src="https://via.placeholder.com/150/007BFF/FFFFFF?text=Photo" alt="Student Profile Picture" class="profile-img">
+            <h1 class="student-name">[Your Full Name Here]</h1>
+            <p class="bio-summary">
+                First-year student at [College Name] passionate about learning new technologies and solving real-world problems through code. Eager to contribute and grow in a dynamic tech environment.
+            </p>
+
+            <div class="social-links">
+                <a href="#" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <section id="about">
+        <div class="container">
+            <h2>👋 About Me</h2>
+            <p style="max-width: 800px; margin: 0 auto; text-align: center;">
+                I'm a motivated first-year B.Tech student exploring the intersection of **Backend Development (Django)** and **Blockchain technology**. My primary interest lies in building scalable, secure applications. I thrive in collaborative settings, possess strong problem-solving skills, and I'm dedicated to turning theoretical knowledge into practical, impactful projects. I'm actively seeking opportunities like SIH to apply and expand my technical capabilities.
+            </p>
+        </div>
+    </section>
+
+    <section id="education">
+        <div class="container">
+            <h2>🎓 Education</h2>
+            <ul class="education-list">
+                <li class="education-item">
+                    <span class="edu-year">2024 - Present</span>
+                    <h3>B.Tech. in Computer Science Engineering</h3>
+                    <p>[Your College Name], [City]</p>
+                    <p>Expected Graduation: 2028 | Currently maintaining a [X.X] GPA.</p>
+                </li>
+                <li class="education-item">
+                    <span class="edu-year">2022 - 2024</span>
+                    <h3>Higher Secondary School (Class 12)</h3>
+                    <p>[Your School Name], [City]</p>
+                    <p>Science Stream | Achieved [X]% aggregate score.</p>
+                </li>
+                </ul>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2>🛠️ Skills & Proficiency</h2>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <div class="skill-name">HTML & CSS</div>
+                    <div class="proficiency-bar"><div class="proficiency-level" style="width: 85%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">JavaScript (Vanilla)</div>
+                    <div class="proficiency-bar"><div class="proficiency-level" style="width: 60%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">Python / Django (Backend)</div>
+                    <div class="proficiency-bar"><div class="proficiency-level" style="width: 75%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">Blockchain Concepts</div>
+                    <div class="proficiency-bar"><div class="proficiency-level" style="width: 50%;"></div></div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-name">Communication</div>
+                    <div class="proficiency-bar"><div class="proficiency-level" style="width: 90%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">Problem Solving</div>
+                    <div class="proficiency-bar"><div class="proficiency-level" style="width: 80%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">Teamwork</div>
+                    <div class="proficiency-bar"><div class="proficiency-level" style="width: 95%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">Basic Cloud (AWS/Azure/GCP)</div>
+                    <div class="proficiency-bar"><div class="proficiency-level" style="width: 40%;"></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="achievements">
+        <div class="container">
+            <h2>🏆 Projects & Achievements</h2>
+            <div class="achievements-list">
+                <div class="achievement-card">
+                    <h3>Participation in SIH 2025 (Expected)</h3>
+                    <p>Selected as a team member for the Smart India Hackathon 2025, focusing on a **Hybrid Software problem** incorporating **IoT** for a smart campus solution. (Mention a project if you have one, even a small one!)</p>
+                </div>
+                <div class="achievement-card">
+                    <h3>Project: Simple To-Do Web App</h3>
+                    <p>Developed a responsive To-Do List application using **HTML, CSS, and vanilla JavaScript**. Implemented local storage to persist tasks.</p>
+                </div>
+                <div class="achievement-card">
+                    <h3>Online Certification: Python for Beginners</h3>
+                    <p>Completed a comprehensive 10-hour course on Python programming fundamentals from [Platform Name] (e.g., Coursera/Udemy).</p>
+                </div>
+                <div class="achievement-card">
+                    <h3>Hackathon: College Beginner Hack (Internal)</h3>
+                    <p>Participated in the college-level 24-hour hackathon as a UI/UX and Frontend contributor, earning a **Certificate of Participation**.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" style="background-color: var(--background-light);">
+        <div class="container">
+            <h2>📧 Get In Touch</h2>
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required placeholder="Your Full Name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required placeholder="Your Email Address">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" required placeholder="Your message here..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+                <div class="validation-message" id="formValidationMessage"></div>
+            </form>
+
+            <div class="contact-alternative">
+                <p>Alternatively, you can reach me directly at:</p>
+                <p><strong><a href="mailto:your.email@example.com">your.email@example.com</a></strong></p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="current-year"></span> [Your Name]. All rights reserved.</p>
+            <div class="social-links" style="margin-top: 10px;">
+                <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set current year in the footer
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+
+            // Contact Form Validation Logic
+            const contactForm = document.getElementById('contactForm');
+            const validationMessage = document.getElementById('formValidationMessage');
+
+            contactForm.addEventListener('submit', function(event) {
+                event.preventDefault(); // Stop default form submission
+
+                const name = document.getElementById('name').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const message = document.getElementById('message').value.trim();
+
+                validationMessage.textContent = ''; // Clear previous messages
+                let isValid = true;
+
+                if (name === '' || email === '' || message === '') {
+                    validationMessage.textContent = 'Error: All fields are required.';
+                    isValid = false;
+                }
+
+                // Basic email format check (simple regex)
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (isValid && !emailRegex.test(email)) {
+                    validationMessage.textContent = 'Error: Please enter a valid email address.';
+                    isValid = false;
+                }
+
+                if (isValid) {
+                    // In a real scenario, you would send this data to a server
+                    validationMessage.textContent = 'Message sent successfully! (Note: This is a placeholder submission).';
+                    validationMessage.style.color = 'green';
+
+                    // Optional: Reset the form after successful (placeholder) submission
+                    contactForm.reset();
+                } else {
+                    validationMessage.style.color = 'red';
+                }
+            });
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
